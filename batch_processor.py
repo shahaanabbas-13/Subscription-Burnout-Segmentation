@@ -13,8 +13,8 @@ from inference import load_and_predict_new_data # Import the core function
 
 # --- FILE PATHS ---
 # Define where the new data comes from and where the report goes
-DATA_DIR = 'Data/archive(1)/' # <-- UPDATED: Use the new dataset in archive(1)
-INPUT_FILE = DATA_DIR + 'USvideos.csv' # The new dataset file
+DATA_DIR = 'Data/' # <-- UPDATED: Data moved to root of Data folder
+INPUT_FILE = DATA_DIR + 'USvideos.csv' # The dataset file
 REPORT_DIR = 'reports/' # <-- Optional: Change '../reports/' to 'reports/' for consistency
 
 def run_daily_inference():
@@ -32,6 +32,8 @@ def run_daily_inference():
         # NOTE: You would typically load ONLY the data collected since the last run
         df_raw_latest = pd.read_csv(INPUT_FILE)
         print(f"Successfully loaded {len(df_raw_latest)} rows for analysis.")
+        print("First 20 rows of the raw data:")
+        print(df_raw_latest.head(20))
     except FileNotFoundError:
         print(f"ERROR: Input file not found at {INPUT_FILE}. Exiting.")
         return
@@ -43,6 +45,9 @@ def run_daily_inference():
     if segmentation_results is None or segmentation_results.empty:
         print("Inference completed, but no complete sequences were found for scoring.")
         return
+
+    print("First 20 rows of the segmentation results:")
+    print(segmentation_results.head(20))
 
     # 3. Create High-Risk Churn Report (Focus on Segment 0)
     # Assuming Segment 0 is "The Flash Burners" (High Risk)
