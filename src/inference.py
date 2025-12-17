@@ -95,8 +95,8 @@ if __name__ == '__main__':
     
     # Dummy data that models a "Slow Fade" segment (Segment 0)
     new_data_raw = pd.DataFrame({
-        'day': ['2025-01-01', '2025-01-02', '2025-01-03', '2025-01-04', 
-                '2025-01-05', '2025-01-06', '2025-01-07', '2025-01-08'],
+        'trending_date': ['25.01.01', '25.01.02', '25.01.03', '25.01.04', 
+                          '25.01.05', '25.01.06', '25.01.07', '25.01.08'],
         'video_id': ['A_SLOW_FADE', 'A_SLOW_FADE', 'A_SLOW_FADE', 'A_SLOW_FADE', 
                      'A_SLOW_FADE', 'A_SLOW_FADE', 'A_SLOW_FADE', 'A_SLOW_FADE'],
         'views': [10, 9, 8, 7, 6, 5, 4, 3] # Slow, steady decline
